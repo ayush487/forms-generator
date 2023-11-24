@@ -6,6 +6,7 @@ import FormsPage from './pages/FormsPage';
 import CreateFormPage from './pages/CreateFormPage';
 import ErrorPage from './pages/ErrorPage';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,8 +21,12 @@ function App() {
           <Route path='*' element={<ErrorPage />}></Route>
         </Routes>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
 
 export default App;
+// https://dev.codedesign.ai/app/builder?project=form-creation-wizard14ts1samuq#home

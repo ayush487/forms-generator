@@ -1,5 +1,8 @@
 .header {
   width: 100%;
   height: 100px;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
+}
+.header h3 {
+  color: var(--secondary-bg-color);
 }

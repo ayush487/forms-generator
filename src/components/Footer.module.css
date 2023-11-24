@@ -1,0 +1,119 @@
+.footer_container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 60px 10px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  background-color: var(--secondary-bg-color);
+  color: white;
+}
+.footer {
+  width: 100%;
+  font-family: "Space Grotesk", sans-serif;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.container__1 {
+  display: flex;
+  flex-direction: row;
+}
+.container__1 .mascot {
+  width: 50%;
+  font-weight: 600;
+  font-size: 60px;
+  color: var(--secondary-font-color);
+}
+.container__1 .community {
+  width: 50%;
+  padding: 15px;
+  font-weight: 400;
+  color: var(--secondary-font-color);
+  font-size: 16px;
+}
+.container__1 .community button {
+  margin-top: 30px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: var(--secondary-font-color);
+  user-select: none;
+  text-decoration: none;
+  color: black;
+}
+.container__1 .community button:hover {
+  background-color: rgb(230, 230, 230);
+}
+.footer_rulling {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 60px 10px;
+}
+
+.container__2 {
+  display: flex;
+  justify-content: space-between;
+}
+.container__2 .branding {
+  width: 30%;
+}
+.container__2 .branding h5 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: -10px;
+}
+.container__2 .brand_details {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+ul {
+  list-style: none;
+}
+ul li {
+  padding-bottom: 5px;
+}
+.bottom_text {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 60px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .container__1 {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container__1 .mascot {
+    font-size: 50px;
+    width: 100%;
+  }
+  .container__1 .community {
+    font-size: 14px;
+    padding: 15px 0;
+    width: 100%;
+  }
+  .footer_rulling {
+    margin: 40px 10px;
+  }
+  .container__2 {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container__2 .branding {
+    width: 100%;
+    text-align: center;
+  }
+  .container__2 .branding p {
+    margin: 0 40px;
+  }
+  .container__2 .brand_details {
+    justify-content: space-around;
+    margin-top: 25px;
+  }
+}
