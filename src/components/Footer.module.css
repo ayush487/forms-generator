@@ -23,6 +23,8 @@
   font-weight: 600;
   font-size: 60px;
   color: var(--secondary-font-color);
+  user-select: none;
+  -webkit-user-select: none;
 }
 .container__1 .community {
   width: 50%;
@@ -31,21 +33,15 @@
   color: var(--secondary-font-color);
   font-size: 16px;
 }
-.container__1 .community button {
-  margin-top: 30px;
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 500;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: var(--secondary-font-color);
-  user-select: none;
-  text-decoration: none;
-  color: black;
+.community div {
+  display: flex;
+  margin-top: 35px;
+  justify-content: space-between;
+  padding-right: 20px;
 }
-.container__1 .community button:hover {
-  background-color: rgb(230, 230, 230);
+.themeBtn {
+  cursor: pointer;
+  margin-top: 20px;
 }
 .footer_rulling {
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -63,16 +59,18 @@
   font-size: 22px;
   font-weight: 700;
   margin-top: -10px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .container__2 .brand_details {
   display: flex;
   flex-direction: row;
   font-size: 14px;
 }
-ul {
+.options ul, .social ul {
   list-style: none;
 }
-ul li {
+.options ul li, .social ul li {
   padding-bottom: 5px;
 }
 .bottom_text {

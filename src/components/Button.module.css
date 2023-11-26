@@ -1,0 +1,15 @@
+.button {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: var(--secondary-font-color);
+  user-select: none;
+  text-decoration: none;
+  color: black;
+}
+.button:hover {
+  background-color: rgb(230, 230, 230);
+}

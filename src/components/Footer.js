@@ -1,6 +1,17 @@
+import { useState } from "react";
+import Button from "./Button";
 import classes from "./Footer.module.css";
 
 const Footer = () => {
+  const [isDarkTheme, setDarkTheme] = useState(false);
+  const switchTheme = () => {
+    if (isDarkTheme) {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+    setDarkTheme((prevState) => !prevState);
+  };
   return (
     <div className={classes.footer_container}>
       <div className={classes.footer}>
@@ -11,12 +22,18 @@ const Footer = () => {
               Join the FormBuilder community today and begin creating your forms
               with ease.
             </p>
-            <button>Join Now</button>
+            <div>
+              <Button>Join Now</Button>
+              <i
+                className={`fa-solid ${isDarkTheme ? "fa-sun" : "fa-moon"} 
+                fa-xl ${classes.themeBtn}`}
+                onClick={switchTheme}
+              ></i>
+            </div>
           </div>
         </div>
         <hr className={classes.footer_rulling} />
         <div className={classes.container__2}>
-
           <div className={classes.branding}>
             <h5>FormBuilder</h5>
             <p>
@@ -41,7 +58,6 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-
         </div>
         <div className={classes.bottom_text}>
           <p>©2023 FormBuilder. All rights reserved. </p>
