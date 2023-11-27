@@ -1,9 +1,8 @@
+import Error404 from "../components/Error404";
+
 const ErrorPage = () => {
   return (
-    <>
-      Error 404! <br />
-      Not Found
-    </>
+    <Error404 />
   );
 };
 

@@ -11,5 +11,5 @@
   color: black;
 }
 .button:hover {
-  background-color: rgb(230, 230, 230);
+  filter: brightness(90%);
 }

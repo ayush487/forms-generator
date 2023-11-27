@@ -1,0 +1,26 @@
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0px;
+  color: var(--primary-font-color);
+  max-width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.error-container span {
+  font-size: 14px;
+}
+.error-container h1 {
+  margin: 10px;
+}
+.error-container p {
+  margin: 4px 0;
+}
+.error-btn {
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-font-color);
+  margin: 12px 0;
+}
+

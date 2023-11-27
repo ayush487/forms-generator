@@ -1,0 +1,30 @@
+.choose-builder-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.choose-builder-div h1 {
+  font-size: 48px;
+  color: var(--primary-font-color);
+}
+.choose-builder-div iframe {
+  border-radius: 30px;
+  border: none;
+  height: 560px;
+  width: 80%;
+}
+
+@media screen and (max-width: 800px) {
+  .choose-builder-div iframe {
+    height: 350px;
+    width: 90%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .choose-builder-div iframe {
+    height: 250px;
+    width: 95%;
+  }
+}

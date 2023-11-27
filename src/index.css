@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Sen&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Sen&family=Space+Grotesk:wght@400;500;600;700&display=swap"); */
 
 :root {
   --primary-font-color : black;
@@ -10,7 +10,32 @@
   --primary-font-color : white;
   --secondary-font-color : white;
   --primary-bg-color : black;
-  --secondary-bg-color : rgb(84, 75, 75);
+  --secondary-bg-color : #232323;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 400;
+  src: url('../public/fonts/SpaceGrotesk-Regular.ttf');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 300;
+  src: url('../public/fonts/SpaceGrotesk-Light.ttf');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 500;
+  src: url('../public/fonts/SpaceGrotesk-Medium.ttf');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 600;
+  src: url('../public/fonts/SpaceGrotesk-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-weight: 700;
+  src: url('../public/fonts/SpaceGrotesk-Bold.ttf');
 }
 body {
   margin: 0px;

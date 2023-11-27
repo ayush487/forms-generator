@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "./Button";
 import classes from "./Footer.module.css";
+import AuthContext from "../store/auth-context";
 
 const Footer = () => {
   const [isDarkTheme, setDarkTheme] = useState(false);
+  const authContext = useContext(AuthContext);
   const switchTheme = () => {
     if (isDarkTheme) {
       document.documentElement.setAttribute("data-theme", "light");
@@ -11,6 +13,10 @@ const Footer = () => {
       document.documentElement.setAttribute("data-theme", "dark");
     }
     setDarkTheme((prevState) => !prevState);
+  };
+  const changeLoginState = () => {
+    const isLoggedIn = authContext.isLoggedIn;
+    authContext.setLoggedIn(!isLoggedIn);
   };
   return (
     <div className={classes.footer_container}>
@@ -23,7 +29,7 @@ const Footer = () => {
               with ease.
             </p>
             <div>
-              <Button>Join Now</Button>
+              <Button onClick={changeLoginState}>Join Now</Button>
               <i
                 className={`fa-solid ${isDarkTheme ? "fa-sun" : "fa-moon"} 
                 fa-xl ${classes.themeBtn}`}

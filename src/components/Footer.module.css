@@ -42,6 +42,7 @@
 .themeBtn {
   cursor: pointer;
   margin-top: 20px;
+  user-select: none;
 }
 .footer_rulling {
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -79,6 +80,15 @@
   font-size: 12px;
   font-weight: 400;
   margin-top: 60px;
+}
+
+@media screen and (max-width: 876px) {
+  .container__1 .mascot {
+    font-size: 45px;
+  }
+  .container__1 .community {
+    padding: 0px;
+  }
 }
 
 
