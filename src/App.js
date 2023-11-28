@@ -5,8 +5,8 @@ import LoginPage from './pages/LoginPage';
 import FormsPage from './pages/FormsPage';
 import CreateFormPage from './pages/CreateFormPage';
 import ErrorPage from './pages/ErrorPage';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/utility/Header';
+import Footer from './components/utility/Footer';
 
 function App() {
   return (

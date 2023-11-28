@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import Button from './Button'
+import Button from '../utility/Button'
 import classes from './Error404.module.css'
 const Error404 = () => {
   const navigate = useNavigate()

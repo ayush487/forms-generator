@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import Button from "./Button";
 import classes from "./Footer.module.css";
-import AuthContext from "../store/auth-context";
+import AuthContext from "../../store/auth-context";
 
 const Footer = () => {
   const [isDarkTheme, setDarkTheme] = useState(false);

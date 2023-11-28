@@ -9,7 +9,7 @@ const WelcomeText = () => {
         try it today!
       </p>
       <div className={classes['img-container']}>
-        <img src="/assets/broken-glass.jpg" alt='broken glass'></img>
+        <img src="/assets/broken-glass.png" alt='broken glass'></img>
       </div>
     </div>
   );

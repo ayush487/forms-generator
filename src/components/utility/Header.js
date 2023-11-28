@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 import Button from "./Button";
 import { useContext, useState } from "react";
-import AuthContext from "../store/auth-context";
+import AuthContext from "../../store/auth-context";
 
 const Header = () => {
   const navigate = useNavigate();
