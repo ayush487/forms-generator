@@ -7,6 +7,7 @@
   --primary-bg-color: white;
   --secondary-bg-color: #3778fa;
   --tertiary-bg-color: rgb(230, 230, 230);
+  --link-color : #3778fa;
 }
 [data-theme="dark"] {
   --primary-font-color: white;
@@ -15,6 +16,7 @@
   --primary-bg-color: black;
   --secondary-bg-color: #232323;
   --tertiary-bg-color: rgb(25, 25, 25);
+  --link-color : #3778fa;
 }
 @font-face {
   font-family: "Space Grotesk";
@@ -48,9 +50,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--primary-bg-color);
   color: var(--primary-font-color);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.modal-close div {
+  animation: modal-close-animation 150ms ease-in-out forwards;
+  -webkit-animation: modal-close-animation 150ms ease-in-out forwards;
+}
+
+@keyframes modal-close-animation {
+  0% {
+    top: calc((100% - 450px) / 2);
+    opacity: 1;
+  }
+  50% {
+    top: calc((100% - 450px) / 2 + 50px);
+    opacity: 0.8;
+  }
+  100% {
+    top: -300px;
+    opacity: 0.2;
+  }
 }

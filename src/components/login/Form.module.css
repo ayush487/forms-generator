@@ -1,0 +1,35 @@
+.form {
+  height: 100%;
+  width: 100%;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.fgt-container {
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+.fgt-div {
+  font-weight: 500 ;
+  cursor: pointer;
+}
+.fgt-div:hover {
+  color: var(--link-color);
+}
+.modal-bottom-text {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+.modal-bottom-text span {
+  font-weight: 600;
+  color: var(--link-color);
+  cursor: pointer;
+}
+.modal-bottom-text span:hover {
+  text-decoration: underline;
+}

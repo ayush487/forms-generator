@@ -73,6 +73,10 @@
 }
 .options ul li, .social ul li {
   padding-bottom: 5px;
+  cursor: pointer;
+}
+.options ul li:hover, .social ul li:hover {
+  text-decoration: underline;
 }
 .bottom_text {
   text-align: center;

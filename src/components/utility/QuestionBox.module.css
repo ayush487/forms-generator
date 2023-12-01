@@ -9,6 +9,7 @@
   padding: 20px;
   margin: 10px;
 }
+
 .question-box .question {
   font-size: 20px;
   font-weight: 500;
@@ -24,6 +25,7 @@
   width: 25px;
   border-radius: 50%;
   cursor: pointer;
+  transition: transform 200ms;
 }
 .question .expand-btn:hover {
   background-color: var(--tertiary-bg-color);
@@ -33,9 +35,27 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.cross {
+  transform: rotate(135deg);
+}
 .question-box .answer {
   color: var(--tertiary-font-color);
 }
 .hidden {
   display: none;
+}
+@media screen and (max-width: 500px){
+  .question-box {
+    width: 85%;
+  }
+  .question-box .question {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .question .paragraph {
+    width: 100%;
+  }
+  .question .expand-btn {
+    display: none;
+  }
 }

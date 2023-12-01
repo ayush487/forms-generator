@@ -6,6 +6,8 @@
 }
 .faq-container h1 {
   font-weight: 600;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .faq {
   background-color: var(--tertiary-bg-color);
@@ -13,7 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 80%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -38,9 +40,21 @@
   margin: 20px 0;
 }
 
+@media screen and (max-width: 800px) {
+  .faq {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 500px) {
+  .faq{
+    width: 95%;
+  }
   .banner-container img {
     height: auto;
     scale: 1.8;
+  }
+  .questions-container {
+    width: 95%;
   }
 }

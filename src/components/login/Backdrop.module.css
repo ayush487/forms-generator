@@ -1,0 +1,20 @@
+.backdrop-overlay {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  animation: backdrop-animation 200ms forwards;
+  -webkit-animation: backdrop-animation 200ms forwards;
+}
+
+@keyframes backdrop-animation {
+  from {
+    background-color: rgba(0,0,0,0);
+  }
+  to {
+    background-color: rgba(0,0,0,0.7);
+  }
+}

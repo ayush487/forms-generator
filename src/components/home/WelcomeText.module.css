@@ -14,6 +14,8 @@
   transform: translateX(-50%);
   margin-bottom: 0px;
   margin-top: 50px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .welcome-text p {
   width: 50%;
@@ -43,8 +45,6 @@
   top: -80px;
   border-radius: 50px;
 }
-
-
 
 @media screen and (max-width: 876px) {
   .welcome-text h1 {

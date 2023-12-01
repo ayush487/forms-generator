@@ -8,6 +8,8 @@
 .choose-builder-div h1 {
   font-size: 48px;
   color: var(--primary-font-color);
+  user-select: none;
+  -webkit-user-select: none;
 }
 .choose-builder-div iframe {
   border-radius: 30px;

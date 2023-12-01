@@ -4,7 +4,7 @@ import Button from "./Button";
 import { useContext, useState } from "react";
 import AuthContext from "../../store/auth-context";
 
-const Header = () => {
+const Header = (props) => {
   const navigate = useNavigate();
   const authContext = useContext(AuthContext);
   const [headerDropped, setHeaderDropped] = useState(false);
@@ -14,7 +14,6 @@ const Header = () => {
   const showDropdown = () => {
     setHeaderDropped((prevState) => !prevState);
   };
-
   return (
     <header
       className={`${classes.header} 
@@ -25,7 +24,7 @@ const Header = () => {
       <div className={classes["brand-logo"]}>
         <span onClick={goHome}>FormBuilder</span>
         {!authContext.isLoggedIn && (
-          <Button className={classes["mobile-getStarted-btn"]}>
+          <Button className={classes["mobile-getStarted-btn"]} onClick={props.toggleLogin}>
             Get Started
           </Button>
         )}
@@ -53,7 +52,7 @@ const Header = () => {
           </ul>
         )}
         {!authContext.isLoggedIn && (
-          <Button className={classes["pc-getStarted-btn"]}>Get Started</Button>
+          <Button className={classes["pc-getStarted-btn"]} onClick={props.toggleLogin}>Get Started</Button>
         )}
       </div>
     </header>

@@ -3,7 +3,7 @@ import Button from "./Button";
 import classes from "./Footer.module.css";
 import AuthContext from "../../store/auth-context";
 
-const Footer = () => {
+const Footer = (props) => {
   const [isDarkTheme, setDarkTheme] = useState(false);
   const authContext = useContext(AuthContext);
   const switchTheme = () => {
@@ -14,10 +14,7 @@ const Footer = () => {
     }
     setDarkTheme((prevState) => !prevState);
   };
-  const changeLoginState = () => {
-    const isLoggedIn = authContext.isLoggedIn;
-    authContext.setLoggedIn(!isLoggedIn);
-  };
+  const openSignup = () => props.signupWindow();
   return (
     <div className={classes.footer_container}>
       <div className={classes.footer}>
@@ -29,7 +26,12 @@ const Footer = () => {
               with ease.
             </p>
             <div>
-              <Button onClick={changeLoginState}>Join Now</Button>
+              {authContext.isLoggedIn ? (
+                <Button onClick={openSignup}>Start Creating Forms</Button>
+              ) : (
+                <Button onClick={openSignup}>Join Now</Button>
+              )}
+
               <i
                 className={`fa-solid ${isDarkTheme ? "fa-sun" : "fa-moon"} 
                 fa-xl ${classes.themeBtn}`}
