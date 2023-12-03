@@ -31,7 +31,7 @@ const ModalOverlay = (props) => {
             </div>
           </div>
           <div className={classes["form-container"]}>
-            {loginScreen && <LoginForm signup={setSignupPage} />}
+            {loginScreen && <LoginForm close={props.close} signup={setSignupPage} />}
             {!loginScreen && <SignupForm signin={setSigninPage} />}
           </div>
         </div>

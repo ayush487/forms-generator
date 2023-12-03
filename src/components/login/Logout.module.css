@@ -1,0 +1,46 @@
+.logout-container {
+  background-color: var(--primary-bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px var(--shadow-color);
+  text-align: center;
+  width: 400px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 75px 0px;
+  box-sizing: border-box;
+}
+.logout-container h1 {
+  color: var(--tertiary-font-color);
+}
+.logout-container p {
+    color: var(--tertiary-font-color);
+    margin-bottom: 20px;
+}
+.logout-container button {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.sureBtn {
+  background-color: #d9534f;
+}
+.sureBtn:hover {
+  background-color: #c9302c;
+}
+.cancelBtn {
+  background-color: #4CAF50;
+}
+.cancelBtn:hover {
+  background-color: #45a049;
+}
+
+@media screen and (max-width:450px) {
+  .logout-container {
+    width: 90%;
+  }
+}

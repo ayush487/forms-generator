@@ -25,6 +25,27 @@
   text-align: center;
   font-size: 15px;
 }
+.inputBorder {
+  border: 1px solid var(--tertiary-font-color);
+  background-color: var(--primary-bg-color);
+}
+.inputBorder:focus {
+  outline: none;
+}
+.errorText {
+  color: red;
+  margin: -10px 0 -5px 0;
+  text-align: center;
+  font-size: 12px;
+}
+.errorInput {
+  border: 1px solid red;
+  box-shadow: 0 0 10px -5px red;
+  background-color: var(--error-bg-color);
+}
+.errorInput:focus {
+  outline: none;
+}
 .modal-bottom-text span {
   font-weight: 600;
   color: var(--link-color);

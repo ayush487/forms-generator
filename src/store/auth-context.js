@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 const AuthContext = React.createContext({
   isLoggedIn: false,
-  setLoggedIn: (boolean) => {},
+  login: () => {},
+  logout: () => {},
 });
 
 export const AuthContextProvider = (props) => {
-  const [login, setLogin] = useState(false);
+  const initialToken = window.localStorage.getItem("form-builder-token");
+  const [token, setToken] = useState(initialToken);
+  const userIsLoggedIn = !!token;
+  const loginHandler = (token) => {
+    window.localStorage.setItem("form-builder-token", token);
+    setToken(token);
+  };
+  const logoutHandler = () => {
+    window.localStorage.removeItem("form-builder-token");
+    setToken(null);
+  };
   const contextValue = {
-    isLoggedIn: login,
-    setLoggedIn: setLogin,
+    isLoggedIn: userIsLoggedIn,
+    login: loginHandler,
+    logout: logoutHandler,
   };
   return (
     <AuthContext.Provider value={contextValue}>

@@ -8,6 +8,8 @@
   --secondary-bg-color: #3778fa;
   --tertiary-bg-color: rgb(230, 230, 230);
   --link-color : #3778fa;
+  --shadow-color : rgba(0,0,0,0.2);
+  --error-bg-color : rgba(255,180,180,0.2);
 }
 [data-theme="dark"] {
   --primary-font-color: white;
@@ -17,6 +19,8 @@
   --secondary-bg-color: #232323;
   --tertiary-bg-color: rgb(25, 25, 25);
   --link-color : #3778fa;
+  --shadow-color : rgba(255,255,255,0.2);
+  --error-bg-color : rgba(70,0,0,0.2);
 }
 @font-face {
   font-family: "Space Grotesk";
