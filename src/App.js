@@ -10,9 +10,11 @@ import Footer from "./components/utility/Footer";
 import { useContext, useEffect, useState } from "react";
 import LogoutPage from "./pages/LogoutPage";
 import AuthContext from "./store/auth-context";
+import Alert from "./components/utility/Alert";
 
 function App() {
   const [overlay, setOverlay] = useState(false);
+  const [alert, setAlert] = useState(null)
   const authContext = useContext(AuthContext);
   useEffect(() => {
     const theme = localStorage.getItem('theme')
@@ -34,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <Header toggleLogin={toggleLoginScreen} />
-      {overlay && <LoginPage onClick={toggleLoginScreen} />}
+      {overlay && <LoginPage onClick={toggleLoginScreen} setAlert={setAlert} />}
       <main>
         <Routes>
           <Route path="/forms/:formId" element={<FormsPage />}></Route>
@@ -45,6 +47,7 @@ function App() {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
+        {alert && <Alert>{alert}</Alert>}
       </main>
       <footer>
         <Footer signupWindow={toggleLoginScreen} />

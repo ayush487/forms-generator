@@ -6,7 +6,8 @@ export const loginRequest = (
   setLoggingIn,
   loginFunction,
   setError,
-  closeModal
+  closeModal,
+  setAlert
 ) => {
   setLoggingIn(true);
   fetch(apiUrl + "/login", {
@@ -28,6 +29,8 @@ export const loginRequest = (
       loginFunction(`Basic ${btoa(username + ":" + password)}`);
       setLoggingIn(false);
       closeModal();
+      setAlert('Login Successfully!')
+      setTimeout(() => setAlert(null), 4000)
     })
     .catch((error) => {
       setError(error.message);
@@ -35,7 +38,7 @@ export const loginRequest = (
     });
 };
 
-export const signupRequest = (userData, setSigningUp, setError, setLoginPage) => {
+export const signupRequest = (userData, setSigningUp, setError, setLoginPage, setAlert) => {
   setSigningUp(true);
   fetch(apiUrl + "/signup", {
     method: "POST",
@@ -51,7 +54,8 @@ export const signupRequest = (userData, setSigningUp, setError, setLoginPage) =>
         console.log("Signup Error");
         setError(data.message[0]);
       } else {
-        console.log("Signup Success");
+        setAlert('Register Successfully!')
+        setTimeout(() => setAlert(null), 4000)
         setError(null);
         setLoginPage()
       }

@@ -15,22 +15,32 @@
 }
 .header .brand-logo span {
   color: var(--secondary-font-color);
+  display: inline-block;
   font-size: 25px;
   font-weight: 700;
   user-select: none;
   -webkit-user-select: none;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .top-menu-options ul {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 35px;
   margin-top: 10px;
 }
 .top-menu-options ul li a {
+  font-size: 18px;
   text-decoration: none;
   color: var(--secondary-font-color);
+  position: relative;
+}
+.top-menu-options ul li a:hover {
+  top: -5px;
+  color: bisque;
+  border-bottom: 2px solid bisque;
+  text-shadow: 0px 0px 10px var(--shadow-color);
 }
 .top-menu-options button {
   font-family: "Space Grotesk", sans-serif;

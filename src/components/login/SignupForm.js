@@ -25,7 +25,7 @@ const SignupForm = (props) => {
     if (email.trim() === "" || password.trim() === "" || name.trim() === "") {
       return;
     }
-    signupRequest({ email, password }, setSigningUp, setError, props.signin);
+    signupRequest({ email, password }, setSigningUp, setError, props.signin,props.setAlert);
     console.log(`Email : ${email}\nPassword : ${password}\nName : ${name}`);
   };
   const changePage = () => {

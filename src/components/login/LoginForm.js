@@ -5,7 +5,7 @@ import classes from "./Form.module.css";
 import AuthContext from "../../store/auth-context";
 import { useState } from "react";
 import { loginRequest } from "../../store/send-request";
-import { useNavigate } from "react-router-dom";
+import Alert from "../utility/Alert";
 
 const LoginForm = (props) => {
   const authContext = useContext(AuthContext);
@@ -13,7 +13,11 @@ const LoginForm = (props) => {
   const [password, setPassword] = useState("");
   const [isLoggingIn, setLoggingIn] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  
+  // const showAlert = () => {
+  //   setAlert('Login Successfully!')
+  //   setTimeout(() => setAlert(null), 5000)
+  // }
   const changeEmailHandler = (event) => {
     setEmail(event.target.value);
   };
@@ -22,10 +26,18 @@ const LoginForm = (props) => {
   };
   const signin = (event) => {
     event.preventDefault();
-    if(email.trim()==='' || password.trim()==='') {
-      return
+    if (email.trim() === "" || password.trim() === "") {
+      return;
     }
-    loginRequest(email, password, setLoggingIn, authContext.login, setError, props.close);
+    loginRequest(
+      email,
+      password,
+      setLoggingIn,
+      authContext.login,
+      setError,
+      props.close,
+      props.setAlert
+    );
   };
   const changePage = () => {
     props.signup();
@@ -56,7 +68,13 @@ const LoginForm = (props) => {
         <div className={classes["fgt-div"]}>Forget Password</div>
       </div>
       {error && <p className={classes.errorText}>{error}</p>}
-      <SubmitButton>{isLoggingIn ? <i className="fa-solid fa-spinner fa-spin fa-xl"></i> : 'Sign In'}</SubmitButton>
+      <SubmitButton>
+        {isLoggingIn ? (
+          <i className="fa-solid fa-spinner fa-spin fa-xl"></i>
+        ) : (
+          "Sign In"
+        )}
+      </SubmitButton>
       <div className={classes["modal-bottom-text"]}>
         Not a user? <span onClick={changePage}>Sign up</span>
       </div>

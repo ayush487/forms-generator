@@ -9,7 +9,7 @@ const LoginPage = props => {
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <ModalOverlay close={props.onClick} />,
+        <ModalOverlay close={props.onClick} setAlert={props.setAlert} />,
         document.getElementById("overlay-root")
       )}
     </>
