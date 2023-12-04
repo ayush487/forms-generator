@@ -2,7 +2,7 @@ import { useState } from "react";
 import Input from "../utility/Input";
 import SubmitButton from "../utility/SubmitButton";
 import classes from "./Form.module.css";
-import { signupRequest } from "../../store/send-request";
+import { signupRequest } from "../../store/send-auth-request";
 
 const SignupForm = (props) => {
   const [name, setName] = useState("");

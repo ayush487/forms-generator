@@ -1,0 +1,33 @@
+.your-form-container {
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.your-form-container hr {
+  margin-top: -6px;
+  border: 1px solid var(--shadow-color);
+}
+.heading {
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.heading .your-form-txt {
+  font-weight: 600;
+  font-size: 28px;
+}
+.add-new-btn {
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-font-color);
+  font-size: 16px;
+  position: relative;
+}
+.form-list {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

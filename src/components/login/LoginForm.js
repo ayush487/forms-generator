@@ -4,7 +4,7 @@ import SubmitButton from "../utility/SubmitButton";
 import classes from "./Form.module.css";
 import AuthContext from "../../store/auth-context";
 import { useState } from "react";
-import { loginRequest } from "../../store/send-request";
+import { loginRequest } from "../../store/send-auth-request";
 import Alert from "../utility/Alert";
 
 const LoginForm = (props) => {

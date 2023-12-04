@@ -1,4 +1,13 @@
+import { useEffect } from "react";
+
 const CreateFormPage = () => {
-  return <>Create Forms Here</>;
+  useEffect(() => {
+    document.title = "Create Forms - FormBuilder"
+  }, [])
+  return (
+  <>
+    Create Forms
+  </>
+  );
 };
 export default CreateFormPage;

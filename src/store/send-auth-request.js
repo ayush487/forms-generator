@@ -29,8 +29,8 @@ export const loginRequest = (
       loginFunction(`Basic ${btoa(username + ":" + password)}`);
       setLoggingIn(false);
       closeModal();
-      setAlert('Login Successfully!')
-      setTimeout(() => setAlert(null), 4000)
+      setAlert("Login Successfully!");
+      setTimeout(() => setAlert(null), 4000);
     })
     .catch((error) => {
       setError(error.message);
@@ -38,7 +38,13 @@ export const loginRequest = (
     });
 };
 
-export const signupRequest = (userData, setSigningUp, setError, setLoginPage, setAlert) => {
+export const signupRequest = (
+  userData,
+  setSigningUp,
+  setError,
+  setLoginPage,
+  setAlert
+) => {
   setSigningUp(true);
   fetch(apiUrl + "/signup", {
     method: "POST",
@@ -49,15 +55,15 @@ export const signupRequest = (userData, setSigningUp, setError, setLoginPage, se
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log(data);
       if (data.errorCount) {
         console.log("Signup Error");
         setError(data.message[0]);
       } else {
-        setAlert('Register Successfully!')
-        setTimeout(() => setAlert(null), 4000)
+        setAlert("Register Successfully!");
+        setTimeout(() => setAlert(null), 4000);
         setError(null);
-        setLoginPage()
+        setLoginPage();
       }
       setSigningUp(false);
     });

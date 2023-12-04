@@ -1,0 +1,24 @@
+.form-box {
+  width: 100%;
+  padding: 10px 50px 10px 10px;
+  background-color: var(--tertiary-bg-color);
+  box-sizing: border-box;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.form-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.form-description {
+  color: var(--tertiary-font-color);
+  padding: 0px;
+  margin: 4px 0px;
+}
+.link {
+  position: absolute;
+  right: 30px;
+  translate: 0px 20px;
+  color: rgb(115, 115, 235);
+  border-radius: 50%;
+}
