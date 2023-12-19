@@ -25,8 +25,13 @@ const SignupForm = (props) => {
     if (email.trim() === "" || password.trim() === "" || name.trim() === "") {
       return;
     }
-    signupRequest({ email, password }, setSigningUp, setError, props.signin,props.setAlert);
-    console.log(`Email : ${email}\nPassword : ${password}\nName : ${name}`);
+    signupRequest(
+      { name, email, password },
+      setSigningUp,
+      setError,
+      props.signin,
+      props.setAlert
+    );
   };
   const changePage = () => {
     props.signin();
@@ -59,7 +64,11 @@ const SignupForm = (props) => {
       />
       {error && <p className={classes.errorText}>{error}</p>}
       <SubmitButton>
-        {isSigningUp ? <i className="fa-solid fa-spinner fa-spin fa-xl"></i> : "Sign Up"}
+        {isSigningUp ? (
+          <i className="fa-solid fa-spinner fa-spin fa-xl"></i>
+        ) : (
+          "Sign Up"
+        )}
       </SubmitButton>
       <div className={classes["modal-bottom-text"]}>
         Already a user? <span onClick={changePage}>Sign in</span>

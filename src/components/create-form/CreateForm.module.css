@@ -1,0 +1,25 @@
+.create-form-page {
+  width: 100%;
+  box-sizing: border-box;
+}
+.create-form-container {
+  width: 100%;
+  max-width: 780px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+
+/* @media screen and (max-width:900px) {
+  .create-form-container {
+    width: 75%;
+  }
+}
+@media screen and (max-width:500px) {
+  .create-form-container {
+    width: 100%;
+  }
+} */

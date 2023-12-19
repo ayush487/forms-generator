@@ -1,0 +1,4 @@
+.btn {
+  background-color: var(--tertiary-bg-color);
+  color: var(--primary-font-color);
+}

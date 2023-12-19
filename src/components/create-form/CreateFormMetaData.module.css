@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  background-color: var(--create-form-bg-color);
+  padding: 20px;
+  border-radius: 5px;
+  border-top: 6px solid var(--create-form-border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-sizing: border-box;
+}
+.container .title {
+  border: none;
+  color: var(--primary-font-color);
+  background-color: transparent;
+  outline: none;
+  border-bottom: 1px solid var(--form-box-hover-color);
+  font-size: 2rem;
+  cursor: text;
+}
+.container .title:empty::before {
+  content: "Form Title";
+  color: rgb(125, 125, 125);
+}
+.container .description {
+  color: var(--primary-font-color);
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid var(--form-box-hover-color);
+  cursor: text;
+  outline: none;
+}
+.container .description:empty::before {
+  content: "Form description";
+  color: rgb(125, 125, 125);
+}
+.container .title:focus,
+.container .description:focus {
+  border-bottom: 2px solid var(--create-form-border-color);
+}

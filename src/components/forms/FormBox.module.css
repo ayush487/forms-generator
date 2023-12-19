@@ -1,10 +1,38 @@
 .form-box {
   width: 100%;
-  padding: 10px 50px 10px 10px;
+  padding: 10px;
   background-color: var(--tertiary-bg-color);
   box-sizing: border-box;
   border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.form-box:hover {
+  background-color: var(--form-box-hover-color);
+}
+.content-container {
+  width: 90%;
+}
+.response-link a {
+  color: var(--link-color);
   cursor: pointer;
+  text-decoration: none;
+}
+.link-container {
+  color: var(--tertiary-font-color);
+  width: 10%;
+  float: right;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: right;
+  gap: 5px;
+}
+.link-container span {
+  cursor: pointer;
+}
+.link-container span:hover {
+  color: var(--link-color);
 }
 .form-title {
   font-size: 18px;
@@ -16,9 +44,26 @@
   margin: 4px 0px;
 }
 .link {
-  position: absolute;
-  right: 30px;
-  translate: 0px 20px;
-  color: rgb(115, 115, 235);
+  color: var(--tertiary-font-color);
   border-radius: 50%;
+}
+.link:hover {
+  color: var(--link-color);
+}
+
+@media screen and (max-width:800px) {
+  .content-container {
+    width: 84%;
+  }
+  .link-container {
+    width: 16%;
+  }
+}
+@media screen and (max-width:500px) {
+  .content-container {
+    width: 80%;
+  }
+  .link-container {
+    width: 20%;
+  }
 }

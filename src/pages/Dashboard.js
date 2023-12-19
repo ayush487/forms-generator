@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import YourForms from "../components/forms/YourForms";
 
-const Dashboard = () => {
+const Dashboard = props => {
   useEffect(() => {
     document.title = "Dashboard - FormBuilder"
   }, [])
   return (
-    <YourForms />
+    <YourForms setAlert={props.setAlert} />
   )
 };
 

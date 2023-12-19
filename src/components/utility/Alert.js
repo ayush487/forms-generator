@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import classes from './Alert.module.css'
 
-const Box = (props) => {
+export const Box = (props) => {
   return (
     <div className={classes['alert-box']}>
       {props.children}

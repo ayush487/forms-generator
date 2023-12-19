@@ -1,0 +1,48 @@
+.container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .add-option-link {
+  color: rgb(120, 120, 120);
+  cursor: pointer;
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+.container .add-option-link:hover {
+  color: var(--link-color);
+}
+.crossBtn {
+  cursor: pointer;
+}
+.crossBtn:hover {
+  color: red;
+}
+.option-div input {
+  width: 90%;
+  margin: 0px 10px;
+  border: none;
+  outline: none;
+  height: 30px;
+  background-color: transparent;
+  color: var(--primary-font-color);
+  font-size: 18px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.option-div input:hover {
+  border-bottom: 1px solid var(--form-box-hover-color);
+}
+.option-div input:focus {
+  border-bottom: 2px solid var(--create-form-border-color);
+}
+.option-div input::placeholder {
+  color: var(--primary-font-color);
+}
+@media screen and (max-width:800px) {
+  .option-div input {
+    width: 80%;
+  }
+}

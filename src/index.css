@@ -10,6 +10,11 @@
   --link-color : #3778fa;
   --shadow-color : rgba(0,0,0,0.4);
   --error-bg-color : rgba(255,180,180,0.2);
+  --form-box-hover-color : rgb(200,200,200);
+  --create-form-bg-color : #caf0f8;
+  --create-form-bg-color : rgb(245,245,245);
+  --selection-bg-color : rgb(230, 230, 230);
+  --create-form-border-color : #3778fa;
 }
 [data-theme="dark"] {
   --primary-font-color: white;
@@ -21,6 +26,10 @@
   --link-color : #3778fa;
   --shadow-color : rgba(255,255,255,0.2);
   --error-bg-color : rgba(70,0,0,0.2);
+  --form-box-hover-color : rgb(55,55,55);
+  --create-form-bg-color : rgb(25, 25, 25);
+  --selection-bg-color : #232323;
+  --create-form-border-color : rgb(180, 180, 180);
 }
 @font-face {
   font-family: "Space Grotesk";

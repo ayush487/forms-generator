@@ -5,7 +5,6 @@ import classes from "./Form.module.css";
 import AuthContext from "../../store/auth-context";
 import { useState } from "react";
 import { loginRequest } from "../../store/send-auth-request";
-import Alert from "../utility/Alert";
 
 const LoginForm = (props) => {
   const authContext = useContext(AuthContext);
@@ -14,10 +13,6 @@ const LoginForm = (props) => {
   const [isLoggingIn, setLoggingIn] = useState(false);
   const [error, setError] = useState(null);
   
-  // const showAlert = () => {
-  //   setAlert('Login Successfully!')
-  //   setTimeout(() => setAlert(null), 5000)
-  // }
   const changeEmailHandler = (event) => {
     setEmail(event.target.value);
   };

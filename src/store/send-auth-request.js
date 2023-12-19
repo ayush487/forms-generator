@@ -1,4 +1,4 @@
-const apiUrl = "http://127.0.0.1:8080";
+const apiUrl = "http://192.168.59.33:8080";
 
 export const loginRequest = (
   username,
@@ -10,10 +10,14 @@ export const loginRequest = (
   setAlert
 ) => {
   setLoggingIn(true);
-  fetch(apiUrl + "/login", {
+  fetch(apiUrl + "/authenticate", {
     method: "POST",
+    body: JSON.stringify({
+      email: username,
+      password: password,
+    }),
     headers: {
-      Authorization: `Basic ${btoa(username + ":" + password)}`,
+      "Content-Type": "application/json",
     },
   })
     .then((response) => {
@@ -24,9 +28,12 @@ export const loginRequest = (
       }
     })
     .then((data) => {
-      console.log(data);
+      console.log(data.token);
+      const jwtToken = data.token;
+      const payloadEncoded = jwtToken.split(".")[1];
+      const payloadDataJson = window.atob(payloadEncoded);
       setError(null);
-      loginFunction(`Basic ${btoa(username + ":" + password)}`);
+      loginFunction(`Bearer ${jwtToken}`,payloadDataJson);
       setLoggingIn(false);
       closeModal();
       setAlert("Login Successfully!");
@@ -34,6 +41,7 @@ export const loginRequest = (
     })
     .catch((error) => {
       setError(error.message);
+      setLoggingIn(false);
       setLoggingIn(false);
     });
 };
@@ -46,7 +54,7 @@ export const signupRequest = (
   setAlert
 ) => {
   setSigningUp(true);
-  fetch(apiUrl + "/signup", {
+  fetch(apiUrl + "/register", {
     method: "POST",
     body: JSON.stringify(userData),
     headers: {
@@ -55,16 +63,20 @@ export const signupRequest = (
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      if (data.errorCount) {
-        console.log("Signup Error");
-        setError(data.message[0]);
+      console.log(data)
+      if (data.hasErrors) {
+        throw new Error(data.message);
       } else {
         setAlert("Register Successfully!");
         setTimeout(() => setAlert(null), 4000);
         setError(null);
         setLoginPage();
+        setSigningUp(false)
       }
-      setSigningUp(false);
-    });
+    })
+    .catch((error) => {
+      console.log(error)
+      setError(error.message)
+      setSigningUp(false)
+    })
 };

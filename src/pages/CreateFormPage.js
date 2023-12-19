@@ -1,13 +1,14 @@
 import { useEffect } from "react";
+import CreateForm from "../components/create-form/CreateForm";
 
 const CreateFormPage = () => {
   useEffect(() => {
-    document.title = "Create Forms - FormBuilder"
-  }, [])
+    document.title = "Create Forms - FormBuilder";
+  }, []);
   return (
-  <>
-    Create Forms
-  </>
+    <>
+      <CreateForm />
+    </>
   );
 };
 export default CreateFormPage;
