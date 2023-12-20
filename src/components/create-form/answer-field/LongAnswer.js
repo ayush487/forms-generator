@@ -1,7 +1,9 @@
-import classes from './LongAnswer.module.css'
+import classes from './TextAnswer.module.css'
 const LongAnswer = () => {
   return (
-    <div>This is a Long answer field</div>
+    <div className={`${classes.container} ${classes.long}`}>
+      Long-answer text
+    </div>
   )
 }
 export default LongAnswer

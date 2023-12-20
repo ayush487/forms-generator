@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "./MCQ.module.css";
+import classes from "./MultiOptionStyling.module.css";
 
 const MCQ = () => {
   const [options, setOptions] = useState([
@@ -31,16 +31,23 @@ const MCQ = () => {
     <div className={classes.container}>
       {options.map((option) => (
         <div key={option.key} className={classes["option-div"]}>
-          <i className="fa-regular fa-circle fa-sm" style={{color : 'gray'}}></i>
-          <input onChange={inputOption} mykey={option.key} placeholder={`Option`}></input>
           <i
-            className={`${classes.crossBtn} fa-solid fa-xmark fa-sm`}
+            className="fa-regular fa-circle fa-sm"
+            style={{ color: "gray" }}
+          ></i>
+          <input
+            onChange={inputOption}
+            mykey={option.key}
+            placeholder={`Option`}
+          ></input>
+          <i
+            className={`${classes.crossBtn} fa-solid fa-xmark fa-lg`}
             onClick={() => removeOption(option.key)}
           ></i>
         </div>
       ))}
-      <div>
-        <i className="fa-regular fa-circle fa-sm" style={{color : 'gray'}}></i>
+      <div className={classes["add-option-div"]}>
+        <i className="fa-regular fa-circle fa-sm" style={{ color: "gray" }}></i>
         <span className={classes["add-option-link"]} onClick={addOption}>
           Add Option
         </span>

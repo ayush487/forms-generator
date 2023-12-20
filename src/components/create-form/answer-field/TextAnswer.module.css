@@ -1,0 +1,12 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--form-box-hover-color);
+  color: gray;
+}
+.long {
+  width: 70%;
+}
+.short {
+  width: 50%;
+}

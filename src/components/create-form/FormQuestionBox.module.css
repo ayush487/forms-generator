@@ -39,6 +39,15 @@
 .select option {
   padding-inline: 10px;
 }
+.question-menu {
+  border-top: 1px solid var(--form-box-hover-color);
+  padding: 10px;
+  padding-top: 20px;
+  margin-top: 25px;
+  display: flex;
+  gap: 25px;
+  justify-content: right;
+}
 
 @media screen and (max-width:760px) {
   .question-data .question {

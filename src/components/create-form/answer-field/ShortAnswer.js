@@ -1,7 +1,9 @@
-import classes from './ShortAnswer.module.css'
+import classes from './TextAnswer.module.css'
 const ShortAnswer = () => {
   return (
-    <div>This is a Short Answer field</div>
+    <div className={`${classes.container} ${classes.short}`}>
+      Short-answer text
+    </div>
   )
 }
 export default ShortAnswer

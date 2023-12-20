@@ -4,11 +4,13 @@
   flex-direction: column;
   gap: 10px;
 }
-.container .add-option-link {
+.add-option-div {
+  margin-top: 15px;
+}
+.add-option-div .add-option-link {
   color: rgb(120, 120, 120);
   cursor: pointer;
   width: 100px;
-  margin-top: 20px;
   margin-left: 10px;
   font-size: 14px;
 }
@@ -20,6 +22,10 @@
 }
 .crossBtn:hover {
   color: red;
+}
+.serialNumber {
+  display: inline-block;
+  width: 20px;
 }
 .option-div input {
   width: 90%;
