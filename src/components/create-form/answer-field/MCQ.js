@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./MultiOptionStyling.module.css";
 
-const MCQ = () => {
+const MCQ = (props) => {
   const [options, setOptions] = useState([
     { key: Date.now().toString(), text: "" },
   ]);
@@ -15,9 +15,14 @@ const MCQ = () => {
   const inputOption = (e) => {
     const mykey = e.target.getAttribute("mykey");
     setOptions((prevState) => {
-      return prevState.map((opt) =>
+      const newArray = prevState.map((opt) =>
         opt.key === mykey ? { key: opt.key, text: e.target.value } : opt
       );
+      props.dispatch({
+        type: "update-options",
+        payload: { quesKey: props.quesKey, options : newArray },
+      });
+      return newArray;
     });
   };
 

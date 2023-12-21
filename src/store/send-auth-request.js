@@ -1,4 +1,4 @@
-const apiUrl = "http://192.168.59.33:8080";
+const apiUrl = "http://192.168.1.11:8080";
 
 export const loginRequest = (
   username,
@@ -63,7 +63,7 @@ export const signupRequest = (
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log("This is data " + data)
       if (data.hasErrors) {
         throw new Error(data.message);
       } else {
