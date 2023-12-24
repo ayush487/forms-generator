@@ -6,6 +6,7 @@ import WelcomeText from "../components/home/WelcomeText";
 const HomePage = () => {
   useEffect(() => {
     document.title = "Home - FormBuilder"
+    window.scrollTo(0,0)
   }, [])
   return (
     <div>

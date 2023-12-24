@@ -8,15 +8,10 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = (props) => {
-  // const initialToken = window.localStorage.getItem("form-builder-token");
   const [token, setToken] = useState(null);
-  // const initialUserData = window.localStorage.getItem("form-builder-user-data");
   const [userData, setUserData] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
-  // initialUserData ? JSON.parse(initialUserData) : null
-  // );
-
-  // const userIsLoggedIn = !!token;
+  
   const loginHandler = (token, payloadDataJson) => {
     if(!token || !payloadDataJson) {
       return

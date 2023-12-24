@@ -1,4 +1,4 @@
-const apiUrl = "http://192.168.1.11:8080";
+const apiUrl = "http://127.0.0.1:8080";
 
 export const loginRequest = (
   username,
@@ -28,7 +28,6 @@ export const loginRequest = (
       }
     })
     .then((data) => {
-      console.log(data.token);
       const jwtToken = data.token;
       const payloadEncoded = jwtToken.split(".")[1];
       const payloadDataJson = window.atob(payloadEncoded);
@@ -63,7 +62,6 @@ export const signupRequest = (
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("This is data " + data)
       if (data.hasErrors) {
         throw new Error(data.message);
       } else {

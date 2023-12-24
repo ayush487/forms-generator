@@ -27,6 +27,7 @@ function App() {
     const token = localStorage.getItem("form-builder-token")
     const payloadData = localStorage.getItem("form-builder-user-data")
     authContext.login(token,payloadData)
+
   }, []);
   const toggleLoginScreen = () => {
     if (overlay) {

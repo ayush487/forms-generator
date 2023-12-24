@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import classes from "./CreateFormMetaData.module.css";
 
 const CreateFormMetaData = (props) => {
@@ -11,6 +11,10 @@ const CreateFormMetaData = (props) => {
       description: descRef.current.textContent,
     });
   }
+
+  useEffect(() => {
+    titleRef.current.focus()
+  }, [titleRef])
 
   return (
     <div className={`${classes.container}`}>

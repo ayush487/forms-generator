@@ -16,6 +16,7 @@ const FormQuestionBox = (props) => {
   ];
   const [isRequired, setRequired] = useState(false);
   const optionRef = useRef();
+
   const selectOptionType = (event) => {
     props.dispatch({
       type: "update-question-type",

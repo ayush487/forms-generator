@@ -1,11 +1,16 @@
-import { useParams } from "react-router-dom"
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Survey from "../components/survey-page/Survey";
 
 const SurveyPage = () => {
-  const params = useParams()
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const params = useParams();
   return (
-    <div>
-      Survey Page {params.formId}
-    </div>
-  )
-}
-export default SurveyPage
+    <>
+      <Survey formId={params.formId} />
+    </>
+  );
+};
+export default SurveyPage;

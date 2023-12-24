@@ -15,6 +15,7 @@
   --create-form-bg-color : rgb(245,245,245);
   --selection-bg-color : rgb(230, 230, 230);
   --create-form-border-color : #3778fa;
+  --required-symbol-color : rgb(237, 64, 64);
 }
 [data-theme="dark"] {
   --primary-font-color: white;
@@ -30,6 +31,7 @@
   --create-form-bg-color : rgb(25, 25, 25);
   --selection-bg-color : #232323;
   --create-form-border-color : rgb(180, 180, 180);
+  --required-symbol-color : rgb(216, 71, 71);
 }
 @font-face {
   font-family: "Space Grotesk";

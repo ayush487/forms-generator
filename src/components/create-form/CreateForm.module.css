@@ -1,6 +1,7 @@
 .create-form-page {
   width: 100%;
   box-sizing: border-box;
+  padding-bottom: 40px;
 }
 .create-form-container {
   width: 100%;
@@ -15,6 +16,7 @@
   margin-top: 20px;
 }
 .save-btn {
+  font-size: 18px;
   border: none;
   cursor: pointer;
   height: 40px;
@@ -22,7 +24,38 @@
   border-radius: 5px;
   background-color: var(--secondary-bg-color);
   color: var(--secondary-font-color);
+  box-shadow: 0px 0px 5px 0px var(--shadow-color)
 }
 .save-btn:hover {
   filter: brightness(90%);
+}
+.add-question-btn {
+  display: block;
+  color: white;
+  position: sticky;
+  bottom: 80px;
+  left: calc(100% - 200px);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--link-color);
+  cursor: pointer;
+  box-shadow: 0px 0px 15px var(--shadow-color);
+
+}
+.add-question-btn:hover {
+  filter: brightness(90%);
+}
+
+@media screen and (max-width:850px) {
+  .add-question-btn {
+    left: calc(100% - 130px);
+  }
+}
+
+@media screen and (max-width:500px) {
+  .add-question-btn {
+    left: calc(100% - 80px);
+  }
 }

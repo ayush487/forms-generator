@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./MultiOptionStyling.module.css";
 
 const Checkbox = (props) => {
   const [options, setOptions] = useState([
     { key: Date.now().toString(), text: "" },
   ]);
-
+  const [optionIsFocused, setOptionIsFocused] = useState(false)
   const addOption = () => {
+    setOptionIsFocused(true)
     setOptions((prevState) => {
       return [...prevState, { key: Date.now().toString(), text: "" }];
     });
@@ -18,13 +19,16 @@ const Checkbox = (props) => {
       const newArray = prevState.map((opt) =>
         opt.key === mykey ? { key: opt.key, text: e.target.value } : opt
       );
-      props.dispatch({
-        type: "update-options",
-        payload: { quesKey: props.quesKey, options : newArray },
-      });
       return newArray;
     });
   };
+
+  useEffect(() => {
+    props.dispatch({
+      type: "update-options",
+      payload: { quesKey: props.quesKey, options },
+    });
+  }, [options])
 
   const removeOption = (mykey) => {
     setOptions((prevState) =>
@@ -44,6 +48,7 @@ const Checkbox = (props) => {
             onChange={inputOption}
             mykey={option.key}
             placeholder={`Option`}
+            autoFocus={optionIsFocused}
           ></input>
           <i
             className={`${classes.crossBtn} fa-solid fa-xmark fa-lg`}

@@ -31,3 +31,6 @@
   flex-direction: column;
   gap: 10px;
 }
+.form-list-with-spinner {
+  align-items: center;
+}

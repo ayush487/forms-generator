@@ -1,7 +1,10 @@
-import { useReducer, useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import classes from "./CreateForm.module.css";
 import CreateFormMetaData from "./CreateFormMetaData";
 import FormQuestionBox from "./FormQuestionBox";
+import { formPostRequest } from "../../store/send-form-request";
+import AuthContext from "../../store/auth-context";
+import { useNavigate } from "react-router-dom";
 
 const reducerFunction = (state, action) => {
   if (action.type === "add-question") {
@@ -20,12 +23,11 @@ const reducerFunction = (state, action) => {
     const ques = state.find((q) => q.key === action.payload.key);
     ques.isRequired = action.payload.isRequired;
     return state.map((q) => (q.key === action.payload.key ? ques : q));
-  } else if(action.type === "update-options") {
+  } else if (action.type === "update-options") {
     const ques = state.find((q) => q.key === action.payload.quesKey);
-    ques.options = action.payload.options
+    ques.options = action.payload.options;
     return state.map((q) => (q.key === action.payload.quesKey ? ques : q));
-  }
-   else {
+  } else {
     return state;
   }
 };
@@ -39,9 +41,38 @@ const initialState = [
   },
 ];
 
+const isOptionsValid = (options, type) => {
+  if (type === "short" || type === "long") {
+    return true;
+  }
+  if (options.filter((opt) => opt.text === "").length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const isQuestionValid = (ques) => {
+  if (ques.question !== "" && isOptionsValid(ques.options, ques.type)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const isQuestionsValid = (questions) => {
+  if (questions.length === 0) {
+    return false;
+  }
+  return questions.filter((ques) => !isQuestionValid(ques)).length === 0;
+};
+
 const CreateForm = () => {
   const [questionsState, dispatch] = useReducer(reducerFunction, initialState);
   const [metaData, setMetaData] = useState({});
+  const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+  const [isRequestSending, setRequestSending] = useState(false);
 
   const setData = (data) => {
     setMetaData(data);
@@ -59,7 +90,23 @@ const CreateForm = () => {
     });
   };
   const saveForm = () => {
-    console.log({ ...metaData, questions: questionsState });
+    const formData = {
+      ...metaData,
+      id: Date.now().toString(),
+      questions: questionsState,
+    };
+    if (
+      formData.title &&
+      formData.description &&
+      isQuestionsValid(formData.questions) &&
+      !isRequestSending
+    ) {
+      formPostRequest(formData, authContext.jwtToken, navigate, setRequestSending, authContext.logout);
+    } else {
+      alert(
+        "All fields must not be empty and there must be atleast one question"
+      );
+    }
   };
   return (
     <div className={classes["create-form-page"]}>
@@ -74,13 +121,17 @@ const CreateForm = () => {
         ))}
         <div className={classes["options-container"]}>
           <button className={classes["save-btn"]} onClick={saveForm}>
-            Save
-          </button>
-          <button className={classes["save-btn"]} onClick={addQuestion}>
-            Add
+            {isRequestSending ? (
+              <i className="fa-solid fa-spinner fa-spin fa-xl"></i>
+            ) : (
+              "Save"
+            )}
           </button>
         </div>
       </div>
+      <button className={classes["add-question-btn"]} onClick={addQuestion}>
+        <i className="fa-solid fa-plus fa-2xl"></i>
+      </button>
     </div>
   );
 };
