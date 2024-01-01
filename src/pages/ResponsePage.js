@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
+import FormResponses from "../components/response/FormResponses"
 
 const ResponsePage = () => {
   const param = useParams()
@@ -8,7 +9,7 @@ const ResponsePage = () => {
     window.scrollTo(0,0)
   }, [])
   return(
-    <div>Responses {param.formId} </div>
+    <FormResponses formId={param.formId} />
   )
 }
 export default ResponsePage

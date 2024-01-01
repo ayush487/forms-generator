@@ -13,6 +13,7 @@ import CreateFormPage from "./pages/CreateFormPage";
 import Dashboard from "./pages/Dashboard";
 import SurveyPage from "./pages/SurveyPage";
 import ResponsePage from "./pages/ResponsePage";
+import SubmitPage from "./pages/SubmitPage";
 
 function App() {
   const [overlay, setOverlay] = useState(false);
@@ -47,6 +48,7 @@ function App() {
       {overlay && <LoginPage onClick={toggleLoginScreen} setAlert={setAlert} />}
       <main>
         <Routes>
+          <Route path="/forms/submit/:formId/:title" element={<SubmitPage />}></Route>
           <Route path="/forms/:formId" element={<SurveyPage />}></Route>
           {authContext.isLoggedIn && (
             <>

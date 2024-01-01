@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 10px;
+}
+.content {
+  width: 100%;
+  max-width: 780px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  background-color: var(--create-form-bg-color);
+  padding: 20px;
+  border-radius: 5px;
+  border-top: 6px solid var(--create-form-border-color);
+}
+.container h1 {
+  font-weight: 500;
+}
+.link {
+  color: var(--link-color);
+}

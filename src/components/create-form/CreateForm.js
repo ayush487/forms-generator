@@ -21,7 +21,7 @@ const reducerFunction = (state, action) => {
     return state.filter((q) => q.key !== action.payload.key);
   } else if (action.type === "set-required") {
     const ques = state.find((q) => q.key === action.payload.key);
-    ques.isRequired = action.payload.isRequired;
+    ques.required = action.payload.isRequired;
     return state.map((q) => (q.key === action.payload.key ? ques : q));
   } else if (action.type === "update-options") {
     const ques = state.find((q) => q.key === action.payload.quesKey);
@@ -37,7 +37,7 @@ const initialState = [
     type: "mcq",
     question: "",
     options: [],
-    isRequired: false,
+    required: false,
   },
 ];
 

@@ -5,10 +5,12 @@ const SurveyDropdown = (props) => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [answer, setAnswer] = useState(null)
   const handleClick = (text) => {
+    props.setAnswer(text)
     setAnswer(text)
     setDropdownActive(false)
   }
   const setAnswerNull = () => {
+    props.setAnswer('')
     setAnswer(null)
     setDropdownActive(false)
   }

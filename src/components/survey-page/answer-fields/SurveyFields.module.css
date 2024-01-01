@@ -18,6 +18,7 @@
 .short-answer-input {
   width: 50%;
   font-family: "Space Grotesk", sans-serif;
+  color: var(--primary-font-color);
   font-size: 16px;
   border: none;
   outline: none;

@@ -1,83 +1,85 @@
+import { useEffect, useState } from "react";
 import classes from "./Survey.module.css";
 import SurveyHeader from "./SurveyHeader";
 import SurveyQuestion from "./SurveyQuestion";
-
-const formData = {
-  title: "The Social Media Survey",
-  description:
-    "We are collecting data about different people usage behaviour of social medias.",
-};
-
-const questions = [
-  {
-    key: "1703320688041",
-    question: "Which app you can delete if you are offered $500 right now?",
-    type: "mcq",
-    options: [
-      { key: "1703320734067", text: "Twitter" },
-      { key: "1703320734037", text: "Facebook" },
-      { key: "1703320734066", text: "Instagram" },
-      { key: "1703320734069", text: "Discord" },
-    ],
-    isRequired: false,
-  },
-  {
-    key: "1703320688042",
-    question: "How many hours you spend daily on social media?",
-    type: "dropdown",
-    options: [
-      { key: "239192382031", text: "0 - 1 hour" },
-      { key: "239192382032", text: "2 - 4 hour" },
-      { key: "239192382033", text: "5 - 8 hour" },
-      { key: "239192382034", text: "8 hours or more" },
-    ],
-    isRequired: true,
-  },
-  {
-    key: "1703320688043",
-    question: "Which of the Social Media you use?",
-    type: "checkbox",
-    options: [
-      { key: "239196382031", text: "Instagram" },
-      { key: "239196382032", text: "Facebook" },
-      { key: "239196382033", text: "Discord" },
-      { key: "239196382034", text: "LinkedIn" },
-      { key: "239196382035", text: "Twitter" },
-    ],
-    isRequired: false,
-  },
-  {
-    key: "1703320688044",
-    question: "Enter your email address below.",
-    type: "short",
-    isRequired: true,
-  },
-  {
-    key: "1703320688045",
-    question: "Suggest how did you feel filling out this survey form?",
-    type: "long",
-    isRequired: false,
-  },
-];
+import { formFillRequest, formGetRequest } from "../../store/send-form-request";
+import Error404 from "../error/Error404";
+import { useNavigate } from "react-router-dom";
 
 const Survey = (props) => {
-  const formId = props.formId;
+  const navigate = useNavigate()
+  const [error, setError] = useState(false);
+  const [responses, setResponses] = useState([]);
+  const [responsesHasError, setResponsesHasError] = useState(false)
+  const [isSubmitting, setSubmitting] = useState(false)
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    id: "",
+    questions: [],
+  });
+  useEffect(() => {
+    formGetRequest(props.formId, setFormData, setResponses, setError);
+  }, [props.formId]);
+
+  if (error) {
+    return <Error404 />;
+  }
+
+  const isResponsesOk = (responses) => {
+    return (
+      responses.filter((res) => res.required && res.response.trim() === "")
+        .length === 0
+    );
+  };
+
+  const submitSurvey = (event) => {
+    event.preventDefault();
+    setResponsesHasError(false)
+    if (isResponsesOk(responses)) {
+      const formResponse = {
+        formId: props.formId,
+        responses: responses,
+      };
+      formFillRequest(formResponse,formData.title, setResponsesHasError, navigate, setSubmitting)
+    } else {
+      console.error("Responses are not valid");
+      setTimeout(() => setResponsesHasError(true), 0)
+    }
+  };
+
   return (
     <div className={classes["survey-page"]}>
       <div className={classes["survey-container"]}>
-        <SurveyHeader
-          title={formData.title}
-          description={formData.description}
-        />
-        {questions.map((question) => (
-          <SurveyQuestion question={question} key={question.key} />
-        ))}
-        <div className={classes['btn-container']}>
-          <button className={classes["submit-btn"]}>Submit</button>
-        </div>
+        <form className={classes.form} onSubmit={submitSurvey}>
+          <SurveyHeader
+            title={formData.title}
+            description={formData.description}
+          />
+          {formData.questions.map((question) => (
+            <SurveyQuestion
+              question={question}
+              key={question.key}
+              setResponse={setResponses}
+              quesKey={question.key}
+            />
+          ))}
+          <div className={classes["btn-container"]}>
+            <button className={classes["submit-btn"]}>
+            {isSubmitting ? (
+              <i className="fa-solid fa-spinner fa-spin fa-xl"></i>
+            ) : (
+              "Submit"
+            )}
+            </button>
+          </div>
+        </form>
+        <p className={responsesHasError ? classes['error-text'] : classes.hidden}>Please fill all the required fields.</p>
+        <p className={classes['bottom-text']}>Never submit passwords in forms</p>
       </div>
     </div>
   );
 };
 
 export default Survey;
+

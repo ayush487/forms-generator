@@ -1,0 +1,32 @@
+.header-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-font-color);
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+.btn {
+  height: 40px;
+  position: relative;
+  top: 10px;
+  min-width: 104px;
+}
+.table-container {
+  margin-top: 100px;
+  overflow: scroll;
+}
+.table {
+  width: max-content;
+}
+th {
+  height: 50px;
+}
+td {
+  height: 40px;
+  cursor: text;
+  user-select: text;
+}

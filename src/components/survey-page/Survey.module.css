@@ -11,6 +11,8 @@
   left: 50%;
   transform: translateX(-50%);
   box-sizing: border-box;
+}
+.form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -31,4 +33,30 @@
 }
 .submit-btn:hover {
   filter: brightness(90%);
+}
+.hidden {
+  visibility: hidden;
+}
+.error-text {
+  visibility: visible;
+  color: var(--required-symbol-color);
+  position: relative;
+  animation-name: shake;
+  animation-duration: 200ms;
+  animation-timing-function: linear;
+}
+.bottom-text {
+  font-size: 13px;
+  color: var(--tertiary-font-color);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(5px);}
+  40% { transform: translateX(-5px);}
+  60% { transform: translateX(5px);}
+  80% { transform: translateX(-5px);}
+  100% { transform: translateX(0);}
 }
