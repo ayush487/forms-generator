@@ -17,7 +17,7 @@ const FormResponses = (props) => {
       setFormData,
       setResponses
     );
-  }, []);
+  }, [authContext.jwtToken, props.formId]);
 
   const exportResponses = () => {
     const questionData = {};
@@ -72,7 +72,7 @@ const FormResponses = (props) => {
           </div>
         </>
       ) : (
-        <div style={{display : 'flex', justifyContent : 'center'}}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <LoadingSpinner />
         </div>
       )}
