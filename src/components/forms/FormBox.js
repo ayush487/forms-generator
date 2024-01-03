@@ -3,7 +3,7 @@ import classes from "./FormBox.module.css";
 const FormBox = (props) => {
   const copyFormLink = () => {
     window.navigator.clipboard.writeText(
-      window.location.origin + "/fill-form/" + props.formData.id
+      window.location.origin + "/forms/" + props.formData.id 
     );
     props.setAlert("Link Copied");
     setTimeout(() => props.setAlert(null), 500);
